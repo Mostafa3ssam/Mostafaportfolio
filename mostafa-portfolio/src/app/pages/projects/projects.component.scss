@@ -1,13 +1,254 @@
-.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-3); }
-.project { background: rgba(16,26,43,0.6); border: 1px solid var(--border); border-radius: var(--radius-2); padding: var(--space-3); box-shadow: 0 10px 30px rgba(3,10,18,0.35); transition: transform .18s ease, box-shadow .18s ease; }
-.project:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-.head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.head h3 { margin: 0; font-weight: 700; }
-.repo-btn { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .9rem; border-radius: var(--radius-1); border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--text); }
-.repo-btn:hover { background: var(--primary); color: var(--primary-contrast); box-shadow: var(--shadow); }
-.repo-btn svg { display: block; }
-.desc { color: #cbd6e9; margin: .5rem 0 .75rem; }
-.highlights { margin: .5rem 0 0; padding-left: 1rem; }
-.highlights li { margin: .25rem 0; }
+// Projects Grid - عرض المشاريع جنب بعض
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
 
-.repo-btn { margin-top: .75rem; }
+// Project Card - تصميم متناسق مع الثيمات
+.project-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+// تأثيرات خاصة بالثيم الداكن
+.dark-theme .project-card {
+  background: linear-gradient(135deg, rgba(16,26,43,0.8) 0%, rgba(10,20,35,0.9) 100%);
+  box-shadow: 
+    0 10px 30px rgba(3,10,18,0.3),
+    0 1px 2px rgba(255,255,255,0.05) inset;
+}
+
+// تأثيرات خاصة بالثيم الفاتح
+.light-theme .project-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.98) 100%);
+  box-shadow: 
+    0 10px 30px rgba(0,0,0,0.08),
+    0 1px 2px rgba(255,255,255,0.9) inset;
+  border-color: rgba(0,0,0,0.06);
+}
+
+// شريط علوي متحرك - متناسق مع الثيم
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, var(--brand) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary);
+}
+
+.dark-theme .project-card:hover {
+  box-shadow: 
+    0 20px 40px rgba(3,10,18,0.4),
+    0 1px 2px rgba(255,255,255,0.1) inset;
+}
+
+.light-theme .project-card:hover {
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.12),
+    0 1px 2px rgba(255,255,255,0.95) inset;
+  border-color: var(--primary);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+// Project Header - متناسق مع الثيم
+.project-header {
+  margin-bottom: 1.5rem;
+}
+
+.project-header h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.3;
+}
+
+// Project Description - متناسق مع الثيم
+.project-description {
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+  line-height: 1.7;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.light-theme .project-description {
+  color: #64748b;
+  opacity: 1;
+}
+
+// Project Highlights - متناسق مع الثيم
+.project-highlights {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  list-style: none;
+}
+
+.project-highlights li {
+  margin: 0.75rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.light-theme .project-highlights li {
+  color: #334155;
+}
+
+.project-highlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+// Project Link - متناسق مع الثيم
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(var(--primary-rgb), 0.08);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-theme .project-link {
+  background: rgba(255,255,255,0.05);
+}
+
+.light-theme .project-link {
+  background: rgba(var(--primary-rgb), 0.05);
+  border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.project-link:hover {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: var(--primary);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.3);
+}
+
+.light-theme .project-link:hover {
+  box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.25);
+}
+
+.project-link:hover::before {
+  left: 100%;
+}
+
+.project-link svg {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover svg {
+  transform: translateX(2px);
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .project-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+  
+  .project-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .project-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+// Animation on scroll
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
