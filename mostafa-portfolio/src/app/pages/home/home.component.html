@@ -1,10 +1,11 @@
 <section class="hero" id="home">
+  <app-particles></app-particles>
   <div class="hero-content">
     <div class="avatar" appInView>
       <img [src]="photoUrl" alt="Mostafa Essam" (error)="photoError = true" *ngIf="!photoError">
       <div class="avatar-fallback" *ngIf="photoError">ME</div>
     </div>
-    <h1>Mostafa Essam Abd ElHalim</h1>
+    <h1 appTyping [typingSpeed]="100" [typingDelay]="2000">Mostafa Essam Abd ElHalim</h1>
     <p class="subtitle">Junior .NET Developer</p>
     <p class="summary">Motivated developer with hands-on experience in C#, ASP.NET Core, and Entity Framework. Focused on clean code, scalability, and effective teamwork.</p>
     <div class="actions">

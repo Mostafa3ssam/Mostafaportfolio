@@ -1,20 +1,121 @@
-<section class="section" id="contact" appInView>
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <div class="card">
-      <p><strong>Phone:</strong> +20 1120472621</p>
-      <p><strong>Email:</strong> <a [href]="mailtoHref">engmostafa11116@gmail.com</a></p>
-      <p><strong>Location:</strong> Cairo, Egypt</p>
+<section class="contact-section" id="contact" appInView>
+  <div class="contact-container">
+    <div class="section-header">
+      <h2>Get In Touch</h2>
+      <p class="section-subtitle">
+        Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
+      </p>
     </div>
-    <div class="card">
-      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mostafa-essam-bb4821237" target="_blank" rel="noopener">Profile</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Mostafa3ssam" target="_blank" rel="noopener">@Mostafa3ssam</a></p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="pi pi-phone"></i>
+        </div>
+        <h3>Phone</h3>
+        <div class="contact-details">
+          <p><strong>Mobile:</strong> <a href="tel:+201120472621">+20 112 047 2621</a></p>
+          <p><strong>Available:</strong> 9 AM - 6 PM (GMT+2)</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="pi pi-envelope"></i>
+        </div>
+        <h3>Email</h3>
+        <div class="contact-details">
+          <p><strong>Primary:</strong> <a href="mailto:engmostafa11116@gmail.com">engmostafa11116@gmail.com</a></p>
+          <p><strong>Response:</strong> Within 24 hours</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">
+          <i class="pi pi-map-marker"></i>
+        </div>
+        <h3>Location</h3>
+        <div class="contact-details">
+          <p><strong>Based in:</strong> Cairo, Egypt</p>
+          <p><strong>Timezone:</strong> Eastern European Time</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-container">
+      <div class="form-header">
+        <h3>Send Me a Message</h3>
+        <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+      </div>
+
+      <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <div class="input-wrapper">
+            <i class="pi pi-user input-icon"></i>
+            <input 
+              type="text" 
+              id="name"
+              name="name" 
+              placeholder="Enter your full name"
+              [(ngModel)]="contactFormData.name"
+              required
+              #nameInput="ngModel">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrapper">
+            <i class="pi pi-envelope input-icon"></i>
+            <input 
+              type="email" 
+              id="email"
+              name="email" 
+              placeholder="Enter your email address"
+              [(ngModel)]="contactFormData.email"
+              required
+              email
+              #emailInput="ngModel">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <div class="input-wrapper">
+            <i class="pi pi-comment input-icon"></i>
+            <textarea 
+              id="message"
+              name="message" 
+              placeholder="Tell me about your project or inquiry..."
+              rows="5"
+              [(ngModel)]="contactFormData.message"
+              required
+              #messageInput="ngModel">
+            </textarea>
+          </div>
+        </div>
+        
+        <button 
+          type="submit" 
+          class="submit-button"
+          [disabled]="!contactForm.form.valid">
+          <i class="pi pi-send button-icon"></i>
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/mostafa-essam-bb4821237" target="_blank" rel="noopener" class="social-link linkedin" title="LinkedIn">
+        <i class="pi pi-linkedin"></i>
+      </a>
+      <a href="https://github.com/Mostafa3ssam" target="_blank" rel="noopener" class="social-link github" title="GitHub">
+        <i class="pi pi-github"></i>
+      </a>
+      <a href="mailto:engmostafa11116@gmail.com" class="social-link email" title="Email">
+        <i class="pi pi-envelope"></i>
+      </a>
     </div>
   </div>
-  <form class="contact-form" action="mailto:engmostafa11116@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="name" placeholder="Your name" required>
-    <input type="email" name="email" placeholder="Your email" required>
-    <textarea name="message" placeholder="Your message" rows="5" required></textarea>
-    <button type="submit" class="btn primary">Send</button>
-  </form>
 </section>
