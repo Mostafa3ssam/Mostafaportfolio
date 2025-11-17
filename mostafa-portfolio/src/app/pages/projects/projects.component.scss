@@ -1,0 +1,13 @@
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--space-3); }
+.project { background: rgba(16,26,43,0.6); border: 1px solid var(--border); border-radius: var(--radius-2); padding: var(--space-3); box-shadow: 0 10px 30px rgba(3,10,18,0.35); transition: transform .18s ease, box-shadow .18s ease; }
+.project:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.head h3 { margin: 0; font-weight: 700; }
+.repo-btn { display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .9rem; border-radius: var(--radius-1); border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--text); }
+.repo-btn:hover { background: var(--primary); color: var(--primary-contrast); box-shadow: var(--shadow); }
+.repo-btn svg { display: block; }
+.desc { color: #cbd6e9; margin: .5rem 0 .75rem; }
+.highlights { margin: .5rem 0 0; padding-left: 1rem; }
+.highlights li { margin: .25rem 0; }
+
+.repo-btn { margin-top: .75rem; }

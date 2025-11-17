@@ -1,0 +1,20 @@
+<section class="section" id="contact" appInView>
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    <div class="card">
+      <p><strong>Phone:</strong> +20 1120472621</p>
+      <p><strong>Email:</strong> <a [href]="mailtoHref">engmostafa11116@gmail.com</a></p>
+      <p><strong>Location:</strong> Cairo, Egypt</p>
+    </div>
+    <div class="card">
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mostafa-essam-bb4821237" target="_blank" rel="noopener">Profile</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Mostafa3ssam" target="_blank" rel="noopener">@Mostafa3ssam</a></p>
+    </div>
+  </div>
+  <form class="contact-form" action="mailto:engmostafa11116@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+    <button type="submit" class="btn primary">Send</button>
+  </form>
+</section>

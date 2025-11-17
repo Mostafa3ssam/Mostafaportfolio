@@ -1,0 +1,18 @@
+<section class="section" id="projects" appInView>
+  <h2>Projects</h2>
+  <div class="projects">
+    <article class="project" *ngFor="let p of projects">
+      <div class="head">
+        <h3>{{ p.title }}</h3>
+      </div>
+      <p class="desc">{{ p.description }}</p>
+      <ul class="highlights">
+        <li *ngFor="let h of p.highlights">{{ h }}</li>
+      </ul>
+      <a [href]="p.link" target="_blank" rel="noopener" class="repo-btn">
+        <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 .198a8 8 0 0 0-2.53 15.6c.4.074.547-.174.547-.386 0-.19-.007-.693-.01-1.36-2.226.484-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.727-.497.055-.487.055-.487.804.057 1.227.826 1.227.826.714 1.223 1.873.87 2.329.665.073-.517.28-.87.508-1.07-1.776-.202-3.644-.888-3.644-3.956 0-.874.313-1.588.826-2.148-.083-.203-.358-1.02.078-2.126 0 0 .673-.215 2.206.82a7.667 7.667 0 0 1 2.01-.27c.682.003 1.37.092 2.01.27 1.532-1.035 2.204-.82 2.204-.82.438 1.106.163 1.923.08 2.126.514.56.824 1.274.824 2.148 0 3.076-1.87 3.75-3.652 3.948.288.248.543.737.543 1.486 0 1.072-.01 1.935-.01 2.198 0 .214.144.463.55.384A8.001 8.001 0 0 0 8 .198Z"></path></svg>
+        <span>Open Repo</span>
+      </a>
+    </article>
+  </div>
+</section>

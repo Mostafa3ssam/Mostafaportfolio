@@ -1,0 +1,20 @@
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="avatar" appInView>
+      <img [src]="photoUrl" alt="Mostafa Essam" (error)="photoError = true" *ngIf="!photoError">
+      <div class="avatar-fallback" *ngIf="photoError">ME</div>
+    </div>
+    <h1>Mostafa Essam Abd ElHalim</h1>
+    <p class="subtitle">Junior .NET Developer</p>
+    <p class="summary">Motivated developer with hands-on experience in C#, ASP.NET Core, and Entity Framework. Focused on clean code, scalability, and effective teamwork.</p>
+    <div class="actions">
+      <a href="#projects" class="btn primary">Projects</a>
+      <a href="#contact" class="btn">Contact Me</a>
+    </div>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/mostafa-essam-bb4821237" target="_blank" rel="noopener" class="link">LinkedIn</a>
+      <a href="https://github.com/Mostafa3ssam" target="_blank" rel="noopener" class="link">GitHub</a>
+      <a href="mailto:engmostafa11116@gmail.com" class="link">engmostafa11116@gmail.com</a>
+    </div>
+  </div>
+</section>
