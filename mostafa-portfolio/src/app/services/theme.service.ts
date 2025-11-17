@@ -14,8 +14,8 @@ export class ThemeService {
 
   private initializeTheme(): void {
     const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+    // Set dark theme as default for first time visitors
+    const isDark = savedTheme ? savedTheme === 'dark' : true;
     
     this.setTheme(isDark);
   }
@@ -29,12 +29,17 @@ export class ThemeService {
     this.isDarkSubject.next(isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
     
+    // Apply theme to both html and body elements for better compatibility
     if (isDark) {
       document.documentElement.classList.add('dark-theme');
       document.documentElement.classList.remove('light-theme');
+      document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
     } else {
       document.documentElement.classList.add('light-theme');
       document.documentElement.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+      document.body.classList.remove('dark-theme');
     }
   }
 
